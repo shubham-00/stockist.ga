@@ -1,6 +1,7 @@
 import * as actionTypes from "./actionTypes";
 import axios from "axios";
 import { notification } from "antd";
+import * as productActions from "./productActions";
 
 const baseUrl = "http://127.0.0.1:8000/";
 
@@ -26,7 +27,7 @@ export const authFail = (error) => {
 
 export const logout = () => {
 	console.log(window.location);
-	if (window.location.pathname === "/notes/") {
+	if (window.location.pathname !== "/") {
 		window.location = "/";
 	}
 
@@ -39,7 +40,7 @@ export const logout = () => {
 };
 
 export const resetError = () => {
-	return { type: actionTypes.RESER_ERROR };
+	return { type: actionTypes.RESET_ERROR };
 };
 
 export const checkAuthTimeout = (expirationTime) => {
@@ -62,11 +63,13 @@ export const authCheckState = () => {
 				dispatch(logout());
 			} else {
 				dispatch(authSuccess(token));
+
 				dispatch(
 					checkAuthTimeout(
 						(expirationDate.getTime() - new Date().getTime()) / 1000,
 					),
 				);
+				dispatch(productActions.fetchProducts(token));
 			}
 		}
 	};
@@ -100,6 +103,8 @@ export const login = (username, password) => {
 					localStorage.setItem("expirationDate", expirationDate);
 
 					dispatch(authSuccess(token));
+					dispatch(productActions.fetchProducts(token));
+
 					checkAuthTimeout(3600 * 1000); // 1 hour
 					notification.success({
 						message: "Successfully Logged In, yay!",

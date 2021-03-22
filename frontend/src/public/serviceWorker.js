@@ -1,3 +1,4 @@
+/*
 const CACHE_NAME = "version-1";
 const urlsToCache = ["index.html", "offline.html"];
 const self = this;
@@ -31,8 +32,10 @@ self.addEventListener("activate", (event) => {
 				cacheNames.map((cacheName) => {
 					if (!cacheWhitelist.includes(cacheName))
 						return caches.delete(cacheName);
+					else return null;
 				}),
 			);
 		}),
 	);
 });
+*/
