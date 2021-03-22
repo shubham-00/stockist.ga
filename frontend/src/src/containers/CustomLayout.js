@@ -61,6 +61,24 @@ const CustomLayout = (props) => {
 									</Menu.Item>
 								</Menu.SubMenu>
 
+								<Menu.SubMenu key="entries" title="Entries" theme="dark">
+									<Menu.Item
+										key="entryCreate"
+										onClick={() => {
+											setSelectedKey(["entryCreate"]);
+										}}>
+										<Link to="/entries/create/">Create</Link>
+									</Menu.Item>
+
+									<Menu.Item
+										key="entryList"
+										onClick={() => {
+											setSelectedKey(["entryList"]);
+										}}>
+										<Link to="/entries/list/">View</Link>
+									</Menu.Item>
+								</Menu.SubMenu>
+
 								<Menu.Item key="/logout/" onClick={() => props.logout()}>
 									Logout
 								</Menu.Item>

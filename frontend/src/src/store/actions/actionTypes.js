@@ -7,3 +7,9 @@ export const FETCH_START = "FETCH_START";
 export const FETCH_SUCCESS = "FETCH_SUCCESS";
 export const FETCH_FAIL = "FETCH_FAIL";
 export const SET_ERROR = "SET_ERROR";
+
+export const ENTRY_RESET_ERROR = "ENTRY_RESET_ERROR";
+export const ENTRY_FETCH_START = "ENTRY_FETCH_START";
+export const ENTRY_FETCH_SUCCESS = "ENTRY_FETCH_SUCCESS";
+export const ENTRY_FETCH_FAIL = "ENTRY_FETCH_FAIL";
+export const ENTRY_SET_ERROR = "ENTRY_SET_ERROR";

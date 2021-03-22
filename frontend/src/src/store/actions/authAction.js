@@ -2,6 +2,7 @@ import * as actionTypes from "./actionTypes";
 import axios from "axios";
 import { notification } from "antd";
 import * as productActions from "./productActions";
+import * as entryActions from "./entryActions";
 
 const baseUrl = "http://127.0.0.1:8000/";
 
@@ -69,6 +70,7 @@ export const authCheckState = () => {
 					),
 				);
 				dispatch(productActions.fetchProducts(token));
+				dispatch(entryActions.fetchEntries(token));
 			}
 		}
 	};
@@ -102,6 +104,7 @@ export const login = (username, password) => {
 
 					dispatch(authSuccess(token));
 					dispatch(productActions.fetchProducts(token));
+					dispatch(entryActions.fetchEntries(token));
 
 					checkAuthTimeout(3600 * 1000); // 1 hour
 					notification.success({
