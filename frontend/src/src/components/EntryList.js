@@ -14,35 +14,13 @@ const EntryList = (props) => {
 					key="quantity"
 					align="center"
 				/>
-				<Column title="User" dataIndex="user" key="user" align="center" />
-				{/* <Column title="Unit" dataIndex="unit" key="unit" align="center" />
 				<Column
 					title="Description"
 					dataIndex="description"
 					key="description"
 					align="center"
 				/>
-				<Column
-					title="Edit"
-					dataIndex="pk"
-					key="pk"
-					align="center"
-					render={(text, record, index) => {
-						return (
-							<>
-								<Button
-									size="small"
-									ghost
-									type="primary"
-									onClick={() => {
-										props.history.push(`/products/edit/${text}`);
-									}}>
-									Edit
-								</Button>
-							</>
-						);
-					}}
-				/> */}
+				<Column title="User" dataIndex="user" key="user" align="center" />
 			</Table>
 		</>
 	);

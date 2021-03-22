@@ -6,7 +6,7 @@ from .models import Entry
 class EntrySerializer(serializers.ModelSerializer):
     class Meta:
         model = Entry
-        fields = ["product", "quantity"]
+        fields = ["product", "quantity", "description"]
 
     def to_representation(self, instance):
         data = {
@@ -14,5 +14,6 @@ class EntrySerializer(serializers.ModelSerializer):
             "quantity": instance.quantity,
             "name": instance.product.name,
             "user": instance.user.username,
+            "description": instance.description or "",
         }
         return data

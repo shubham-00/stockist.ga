@@ -20,7 +20,7 @@ const Home = (props) => {
 				</div>
 				{/* /Header */}
 
-				<div className="container">
+				<div hidden className="container">
 					{/* Features */}
 
 					{/* Simple */}

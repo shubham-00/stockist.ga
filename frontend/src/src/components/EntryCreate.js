@@ -30,6 +30,7 @@ const EntryCreate = (props) => {
 		let data = {};
 		data.product = values.product;
 		data.quantity = values.mode === "Sell" ? -values.quantity : values.quantity;
+		data.description = values.description || "";
 
 		createEntry(props.token, data);
 	};
@@ -149,6 +150,13 @@ const EntryCreate = (props) => {
 									name="quantity"
 									rules={[{ required: true }]}>
 									<InputNumber />
+								</Form.Item>
+
+								<Form.Item
+									label="Description"
+									name="description"
+									rules={[{ required: false }]}>
+									<Input.TextArea autoSize maxLength={2000} showCount />
 								</Form.Item>
 
 								<Form.Item>
